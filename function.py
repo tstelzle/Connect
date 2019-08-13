@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import quango as q
+import gui as g
 import tkinter as tk
 from PIL import Image, ImageTk
 
@@ -26,31 +27,29 @@ def put_stone(x, y, btn_text):
     if not q.stoneBoard[string]:
         q.stoneBoard[string] = str(q.playerOne)
         print("Name: " + string + " : " + str(q.playerOne))
+        q.playerNamesTurn = (q.playerNamesTurn + 1) % 2
+        q.player.set(q.playerNames[q.playerNamesTurn])
         if q.playerOne:
-            image = Image.open("w_red.png")
-            w_red = ImageTk.PhotoImage(image)
-            #q.board_buttons[string_2]["text"] = str(q.playerOne)
-            q.board_buttons[string_2]["image"] = w_red
-            #btn_text.set(str(q.playerOne))
+            put_color(string_2, q.colorBoard[string_2], q.colorBoard, "black" , "b_")
         else:
-            image = Image.open("b_red.png")
-            b_red = ImageTk.PhotoImage(image)
-            #q.board_buttons[string_2]["text"] = str(q.playerOne)
-            q.board_buttons[string_2]["image"] = b_red
-            #btn_text.set(str(q.playerOne))
+            put_color(string_2, q.colorBoard[string_2], q.colorBoard, "white" , "w_")
+
         q.playerOne = not q.playerOne
         return True
     else:
         return False
     
-def put_color(x, y, color, puttingBoard):
-    string = "button_" + str(x) + "_" + str(y)
-    puttingBoard[string] = color
-    q.board_buttons[string]["bg"]=color
+def put_color(button, color, puttingBoard, directory, stone_color):
+    puttingBoard[button] = color
+    file = Image.open("./" + directory + "/" + stone_color + color + ".png",mode='r')
+    my_image = ImageTk.PhotoImage(file)
+    q.board_buttons[button]["image"]= my_image
+    q.board_buttons[button].image = my_image
 
 def fill_color_board(colorList, colorBoard):
     color = 0
     for x in range(1, q.boardSize + 1):
         for y in range(1, q.boardSize + 1):
-            put_color(x, y, colorList[color], colorBoard)
+            string = "button_" + str(x) + "_" + str(y)
+            put_color(string, colorList[color], colorBoard, "block", "")
             color += 1

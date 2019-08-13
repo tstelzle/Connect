@@ -16,6 +16,8 @@ green = "green"
 
 boardSize = 6
 playerNames = []
+playerNamesTurn = 0
+player = None
 
 colorList = [red, red, orange, yellow, red, red, red, orange, blue, green, yellow, red, orange, blue, blue, green, green, yellow, yellow, green, green, blue, blue, orange, red, yellow, green, blue, orange, red, red, red, yellow, orange, red, red]
 

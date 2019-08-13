@@ -29,7 +29,7 @@ class Firstframe(tk.Frame):
             return True
 
     def __init__(self, master=None):
-        tk.Frame.__init__(self,master)
+        tk.Frame.__init__(self,master) 
         master.title("Quango")
         self.playerOne_Label = tk.Label(master, text="Name Spieler 1")
         self.playerOne_Label.grid(row=0, column=0)
@@ -60,15 +60,14 @@ class Secondframe(tk.Frame):
 
         self.TurnLabel = tk.Label(master, text="Spieler am Zug:")
         self.TurnLabel.grid(row=0, column=columnTurn)
-        self.Turn = tk.Label(master, text=q.playerNames[0])
-        self.Turn.grid(row=0, column=columnPlayer)
+        q.player = tk.StringVar()
+        q.player.set(q.playerNames[q.playerNamesTurn])
+        tk.Label(master, textvariable=q.player).grid(row=0, column=columnPlayer)
     
         for x in range(1, q.boardSize + 1):
             for y in range(1, q.boardSize + 1):
                 btn_name = "button_" + str(x) + "_" + str(y) 
-                #btn_text = tk.StringVar()
-                self.btn_name = tk.Button(master, width=9, height=5, text=btn_name, command=lambda x=x, y=y, name=btn_name: f.put_stone(x,y,name))
-                #self.btn_name.pack()
+                self.btn_name = tk.Button(master, width=100, height=100, text=btn_name, command=lambda x=x, y=y, name=btn_name: f.put_stone(x,y,name))
                 q.board_buttons[btn_name] = self.btn_name
         for x in range(1, q.boardSize + 1):
             for y in range(1, q.boardSize + 1):
