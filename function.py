@@ -69,6 +69,43 @@ def check_win():
                 print("Gewonnen Player 2!")
                 return True
     #5er Reihe
+    for x in range(1, q.boardSize + 1):
+        for y in range(1, q.boardSize + 1):
+            button = make_string(x,y)
+            if(y+4 <= q.boardSize):
+                horizontal_1 = make_string(x, y+1)
+                horizontal_2 = make_string(x, y+2)
+                horizontal_3 = make_string(x, y+3)
+                horizontal_4 = make_string(x, y+4)
+                if("True" == q.stoneBoard[button] == q.stoneBoard[horizontal_1] == q.stoneBoard[horizontal_2] == q.stoneBoard[horizontal_3] == q.stoneBoard[horizontal_4]):
+                    print("Gewonnen Player 1!")
+                    return True
+                if("False" == q.stoneBoard[button] == q.stoneBoard[horizontal_1] == q.stoneBoard[horizontal_2] == q.stoneBoard[horizontal_3] == q.stoneBoard[horizontal_4]):
+                    print("Gewonnen Player 2!")
+                    return True
+            if(x+4 <= q.boardSize):
+                vertical_1 = make_string(x+1, y)
+                vertical_2 = make_string(x+2, y)
+                vertical_3 = make_string(x+3, y)
+                vertical_4 = make_string(x+4, y)
+                if("True" == q.stoneBoard[button] == q.stoneBoard[vertical_1] == q.stoneBoard[vertical_2] == q.stoneBoard[vertical_3] == q.stoneBoard[vertical_4]):
+                    print("Gewonnen Player 1!")
+                    return True
+                if("False" == q.stoneBoard[button] == q.stoneBoard[vertical_1] == q.stoneBoard[vertical_2] == q.stoneBoard[vertical_3] == q.stoneBoard[vertical_4]):
+                    print("Gewonnen Player 2!")
+                    return True
+            if(x+4 <= q.boardSize and y+4 <= q.boardSize):
+                diagonal_1 = make_string(x+1, y+1)
+                diagonal_2 = make_string(x+2, y+2)
+                diagonal_3 = make_string(x+3, y+3)
+                diagonal_4 = make_string(x+4, y+4)
+                if("True" == q.stoneBoard[button] == q.stoneBoard[diagonal_1] == q.stoneBoard[diagonal_2] == q.stoneBoard[diagonal_3] == q.stoneBoard[diagonal_4]):
+                    print("Gewonnen Player 1!")
+                    return True
+                if("False" == q.stoneBoard[button] == q.stoneBoard[diagonal_1] == q.stoneBoard[diagonal_2] == q.stoneBoard[diagonal_3] == q.stoneBoard[diagonal_4]):
+                    print("Gewonnen Player 2!")
+                    return True
+
     #same color
     for key, value in q.groupDic.items():
         a = value[0]
