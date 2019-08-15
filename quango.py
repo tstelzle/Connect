@@ -34,9 +34,6 @@ playerOne = True
 f.fill_board(stoneBoard)
 f.fill_board(colorBoard)
 f.fieldGroupLlist_to_dic()
-""" for key, value in groupDic.items():
-    print(key)
-    print(value) """
 
 if __name__ == "__main__":
    g.main()

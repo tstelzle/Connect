@@ -20,28 +20,6 @@ def print_board(printingBoard):
     for key,val in printingBoard.items():
         print(str(key) + ":" + str(val))
  
-
-""" def put_stone(x, y, btn_text): 
-    string = make_string(x,y)
-    if not q.stoneBoard[string]:
-        q.stoneBoard[string] = str(q.playerOne)
-        print("Name: " + string + " : " + str(q.playerOne))
-        q.playerNamesTurn = (q.playerNamesTurn + 1) % 2
-        q.player.set(q.playerNames[q.playerNamesTurn])
-        if q.playerOne:
-            put_color(string, q.colorBoard[string], q.colorBoard, "black" , "b_")
-        else:
-            put_color(string, q.colorBoard[string], q.colorBoard, "white" , "w_")
-
-        if(check_win() == True):
-            #g.root.event_generate("<<ENDE>>", when="tail")
-            print("win")
-           # g.Secondframe.change(g.my_frame , g.Thirdframe)
-        q.playerOne = not q.playerOne
-        return True
-    else:
-        return False """
-    
 def put_color(button, color, puttingBoard, directory, stone_color):
     puttingBoard[button] = color
     file = Image.open("./" + directory + "/" + stone_color + color + ".png",mode='r')

@@ -4,20 +4,6 @@ import tkinter as tk
 import quango as q
 import function as f
 
-root = tk.Tk()
-
-""" class Mainframe(tk.Frame):
-    def __init__(self):
-        tk.Tk.__init__(self)
-        self.frame = Firstframe(self)
-        self.frame.grid()
-
-    def change(self, frame):
-        list = self.grid_slaves()
-        for item in list:
-            item.destroy()
-        self.frame = frame(self) """
-
 class Firstframe(tk.Frame):
     def __init__(self, master=None):
         tk.Frame.__init__(self, master)
@@ -57,18 +43,12 @@ class Firstframe(tk.Frame):
         for item in list:
             item.destroy()
         self.frame = frame(self)
-
-"""     def __init__(self, master=None):
-        tk.Frame.__init__(self,master) 
-        master.title("Quango") """
-        
+    
 class Secondframe(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self,master)
-        #master.title("Quango")
         self.grid()
         self.createWidgets()
-        #root.bind("<<ENDE>>", self.change(Thirdframe))
 
     def createWidgets(self):
         if q.boardSize % 2 == 0:
@@ -115,9 +95,6 @@ class Secondframe(tk.Frame):
 
             if(f.check_win() == True):
                 self.change(Thirdframe)
-                #g.root.event_generate("<<ENDE>>", when="tail")
-                print("win")
-            # g.Secondframe.change(g.my_frame , g.Thirdframe)
             q.playerOne = not q.playerOne
             return True
         else:
@@ -147,13 +124,8 @@ class Thirdframe(tk.Frame):
             item.destroy()
         self.frame = frame(self)
 
-""" def main():
-    app = Mainframe()
-    app.mainloop() """
-
 def main():
-    #root = tk.Tk()
-    #root.bind("<<ENDE>>", Secondframe.change(root, Thirdframe))
+    root = tk.Tk()
     app = Firstframe(master=root)
     app.mainloop()
 
