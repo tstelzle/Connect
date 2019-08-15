@@ -107,7 +107,9 @@ class Thirdframe(tk.Frame):
         self.createWidgets()
 
     def createWidgets(self):
-        self.Winner = tk.Label(self, text="Gewinner: ")
+        q.winner = tk.StringVar()
+        q.winner.set("Gewinner: " + q.winner_name)
+        self.Winner = tk.Label(self, textvariable=q.winner)
         self.Winner.grid(row=0, column=2)
 
         self.exit = tk.Button(self, text="Exit", command=self.quit)
@@ -116,6 +118,8 @@ class Thirdframe(tk.Frame):
         self.again.grid(row=1, column=0)
     
     def switch_window(self):
+        q.stoneBoard = {}
+        f.fill_board(q.stoneBoard)
         self.change(Secondframe)
 
     def change(self, frame):

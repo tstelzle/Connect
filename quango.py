@@ -20,7 +20,9 @@ green = "green"
 boardSize = 6
 playerNames = []
 playerNamesTurn = 0
+winner_name = ""
 player = None
+winner = None
 
 #both these lists walk through the field from the top left through each row 
 #stores the color of the field

@@ -45,10 +45,11 @@ def check_win():
             neighbour_3 = make_string(x+1, y+1)
             if ("True" == q.stoneBoard[button] == q.stoneBoard[neighbour_1] == q.stoneBoard[neighbour_2] == q.stoneBoard[neighbour_3]):
                 print("Gewonnen Player 1!")
-                #g.master.destroy()
+                q.winner_name = q.playerNames[0]
                 return True
             if ("False" == q.stoneBoard[button] == q.stoneBoard[neighbour_1] == q.stoneBoard[neighbour_2] == q.stoneBoard[neighbour_3]):
                 print("Gewonnen Player 2!")
+                q.winner_name = q.playerNames[1]
                 return True
     #5er Reihe
     for x in range(1, q.boardSize + 1):
@@ -61,9 +62,11 @@ def check_win():
                 horizontal_4 = make_string(x, y+4)
                 if("True" == q.stoneBoard[button] == q.stoneBoard[horizontal_1] == q.stoneBoard[horizontal_2] == q.stoneBoard[horizontal_3] == q.stoneBoard[horizontal_4]):
                     print("Gewonnen Player 1!")
+                    q.winner_name = q.playerNames[0]
                     return True
                 if("False" == q.stoneBoard[button] == q.stoneBoard[horizontal_1] == q.stoneBoard[horizontal_2] == q.stoneBoard[horizontal_3] == q.stoneBoard[horizontal_4]):
                     print("Gewonnen Player 2!")
+                    q.winner_name = q.playerNames[1]
                     return True
             if(x+4 <= q.boardSize):
                 vertical_1 = make_string(x+1, y)
@@ -72,9 +75,11 @@ def check_win():
                 vertical_4 = make_string(x+4, y)
                 if("True" == q.stoneBoard[button] == q.stoneBoard[vertical_1] == q.stoneBoard[vertical_2] == q.stoneBoard[vertical_3] == q.stoneBoard[vertical_4]):
                     print("Gewonnen Player 1!")
+                    q.winner_name = q.playerNames[0]
                     return True
                 if("False" == q.stoneBoard[button] == q.stoneBoard[vertical_1] == q.stoneBoard[vertical_2] == q.stoneBoard[vertical_3] == q.stoneBoard[vertical_4]):
                     print("Gewonnen Player 2!")
+                    q.winner_name = q.playerNames[1]
                     return True
             if(x+4 <= q.boardSize and y+4 <= q.boardSize):
                 diagonal_1 = make_string(x+1, y+1)
@@ -83,9 +88,11 @@ def check_win():
                 diagonal_4 = make_string(x+4, y+4)
                 if("True" == q.stoneBoard[button] == q.stoneBoard[diagonal_1] == q.stoneBoard[diagonal_2] == q.stoneBoard[diagonal_3] == q.stoneBoard[diagonal_4]):
                     print("Gewonnen Player 1!")
+                    q.winner_name = q.playerNames[0]
                     return True
                 if("False" == q.stoneBoard[button] == q.stoneBoard[diagonal_1] == q.stoneBoard[diagonal_2] == q.stoneBoard[diagonal_3] == q.stoneBoard[diagonal_4]):
                     print("Gewonnen Player 2!")
+                    q.winner_name = q.playerNames[1]
                     return True
 
     #same color
@@ -95,9 +102,11 @@ def check_win():
         c = value[2]
         if("True" == q.stoneBoard[a] == q.stoneBoard[b] == q.stoneBoard[c]):
             print("Gewonnen Player 1!")
+            q.winner_name = q.playerNames[0]
             return True 
         if("False" == q.stoneBoard[a] == q.stoneBoard[b] == q.stoneBoard[c]):  
             print("Gewonnen Player 2!")
+            q.winner_name = q.playerNames[1]
             return True          
 
 def fieldGroupLlist_to_dic():
