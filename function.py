@@ -21,7 +21,7 @@ def print_board(printingBoard):
         print(str(key) + ":" + str(val))
  
 
-def put_stone(x, y, btn_text): 
+""" def put_stone(x, y, btn_text): 
     string = make_string(x,y)
     if not q.stoneBoard[string]:
         q.stoneBoard[string] = str(q.playerOne)
@@ -33,11 +33,14 @@ def put_stone(x, y, btn_text):
         else:
             put_color(string, q.colorBoard[string], q.colorBoard, "white" , "w_")
 
-        check_win()
+        if(check_win() == True):
+            #g.root.event_generate("<<ENDE>>", when="tail")
+            print("win")
+           # g.Secondframe.change(g.my_frame , g.Thirdframe)
         q.playerOne = not q.playerOne
         return True
     else:
-        return False
+        return False """
     
 def put_color(button, color, puttingBoard, directory, stone_color):
     puttingBoard[button] = color
@@ -64,6 +67,7 @@ def check_win():
             neighbour_3 = make_string(x+1, y+1)
             if ("True" == q.stoneBoard[button] == q.stoneBoard[neighbour_1] == q.stoneBoard[neighbour_2] == q.stoneBoard[neighbour_3]):
                 print("Gewonnen Player 1!")
+                #g.master.destroy()
                 return True
             if ("False" == q.stoneBoard[button] == q.stoneBoard[neighbour_1] == q.stoneBoard[neighbour_2] == q.stoneBoard[neighbour_3]):
                 print("Gewonnen Player 2!")
