@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-import function as f
 import gui as g
+import function as f
 
 # stores the color scheme of current board
 colorBoard = {}
